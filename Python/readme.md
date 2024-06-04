@@ -1,3 +1,3 @@
-# Here are my checkpoint when learning
+# Here are my checkpoint when learning Python
 
 - [x] Hello World
