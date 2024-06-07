@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.1.1/pdfobject.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+      .panel-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: start; /* Align items to the top */
+        }
+        
+    </style>
+</head>
+<body>
+    <h1 style="align-items: center;">Submission Form</h1>
+    <main>
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-header" >User Information Form</div>
+                    <div class="card-body">
+                        <form action="/submit" method="post" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="uploader" placeholder="Enter your name">
+                            </div>
+                            <div class="input-group mb-3">
+                                <label class="input-group-text" for="inputGroupSelect01">Code</label>
+                                <select class="form-select" id="code">
+                                  <option selected>Choose...</option>
+                                  <option value="JRN-">JRN-</option>
+                                  <option value="THS-">THS-</option>
+                                  <option value="BK-">BK-</option>
+                                  <option value="ANT-">ANT-</option>
+                                </select>
+                                <span class="input-group-text">
+                                    <i class="fas fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="Select the code that best describes your submission."></i>
+                              </div>
+                            <div class="mb-3">
+                                <label for="title" class="form-label">Title</label>
+                                <input type="text" class="form-control" id="title" placeholder="Enter title">
+                            </div>
+                            <div class="mb-3">
+                                <label for="description" class="form-label">Description</label>
+                                <textarea class="form-control" id="description" rows="3" placeholder="Enter description"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="file-attachment" class="form-label">File Attachment</label>
+                                <input type="file" class="form-control-file" id="file-attachment" onchange="previewFile()">
+                                <iframe id="iframe-pdf" width="100%" height="520px"></iframe>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer mt-auto py-3 bg-dark text-center">
+            <div class="container">
+                <span class="text-light" style="position: sticky;">
+                    <p>&copy; 2023 Ryritchy</p>
+                </span>
+            </div>
+        </footer>
+    </main>
+    <script>
+    function previewFile() {
+        const preview = document.querySelector('iframe');
+        const file = document.querySelector('input[type=file]').files[0];
+        const reader = new FileReader();
+        var filename = file.name;
+    
+        reader.addEventListener("load", function () {
+              // convert file to base64 string
+            preview.src = reader.result;
+        }, false);
+    
+        if (file) {
+            reader.readAsDataURL(file);
+        }
+    
+    }
+    document.addEventListener("DOMContentLoaded", function(){
+          var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+          var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+          });
+        });
+    </script>
+</body>
+</html>
