@@ -7,9 +7,10 @@ from werkzeug.exceptions import BadRequest
 import json
 from io import BytesIO
 from bson import ObjectId
+import random, string
 app = Flask(__name__)
 
-mongo_uri = "mongodb://192.168.15.10:27017/wtf_storage"
+mongo_uri = "mongodb://192.168.15.10:27017"
 client = pymongo.MongoClient(mongo_uri)
 
 db = client['wtf_storage']
@@ -27,11 +28,17 @@ def custom_json_serializer(obj):
 
 @app.route('/', methods=['GET'])
 def show_upload_form():
-    return render_template('upload.html')
+    return render_template('form.html')
 
 @app.route('/submit', methods=['POST'])
 def submit_file():
-    file = request.files.get('file')
+    file = request.files.get('file-attachment')
+    uploader = request.form.get('uploader') 
+    code_prefix = request.form.get('code')
+    title = request.form.get('title')
+    description = request.form.get('description')
+    unique_key = ''.join(random.choices(string.ascii_uppercase + string.digits, k=4))
+    
     if not file:
         return jsonify({'error': 'No file part'}), 400
     
@@ -39,8 +46,11 @@ def submit_file():
         return jsonify({'error': 'File size exceeds 20MB limit'}), 413
     
     file_metadata = {
-        'title': file.filename,
-        'uploader': datetime.now().isoformat(),
+        'file': file.filename,
+        'title': title, 
+        'uploader': uploader,  
+        'description': description,
+        'code': unique_key, 
         'timestamp': datetime.now().isoformat()
     }
     
@@ -50,6 +60,7 @@ def submit_file():
         return jsonify({'message': f'File {file.filename} uploaded successfully.', 'fileId': str(file_id)}), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+
 
 @app.route('/check', methods=['GET'])
 def check_files():
@@ -64,7 +75,7 @@ def check_files():
 
 @app.route('/download/<string:file_title>')
 def download_file(file_title):
-    print(f"Attempting to download file with title: {file_title}")  # Debugging statement
+    print(f"Attempting to download file with title: {file_title}") 
     try:
         file = fs.find_one({"filename": file_title})
         if file is None:
