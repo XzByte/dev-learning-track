@@ -13,7 +13,7 @@ from datetime import timedelta
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'im good im feeling allright'
-csrf = CSRFProtect(app)
+#csrf = CSRFProtect(app) #still unused, until i know how to implement the csrf properly
 mongo_uri = "mongodb://192.168.15.10:27017"
 client = pymongo.MongoClient(mongo_uri)
 
