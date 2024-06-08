@@ -32,15 +32,17 @@ def show_upload_form():
 
 @app.route('/submit', methods=['POST'])
 def submit_file():
-    file = request.files.get('file-attachment')
+    file =  request.files.get('file-attachment')
+    #file = request.files['file-attachment']
     uploader = request.form.get('uploader') 
-    code_prefix = request.form.get('code')
+    code_prefix = request.form.get('code_prefix')
     title = request.form.get('title')
     description = request.form.get('description')
     unique_key = ''.join(random.choices(string.ascii_uppercase + string.digits, k=4))
+    unique_key = code_prefix + unique_key
     
     if not file:
-        return jsonify({'error': 'No file part'}), 400
+        return jsonify({'error': 'No selected file'}), 400
     
     if file.content_length > MAX_FILE_SIZE_MB * 1024 * 1024:
         return jsonify({'error': 'File size exceeds 20MB limit'}), 413
