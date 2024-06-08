@@ -14,7 +14,6 @@
             justify-content: space-between;
             align-items: start; /* Align items to the top */
         }
-        
     </style>
 </head>
 <body>
@@ -25,14 +24,14 @@
                 <div class="card">
                     <div class="card-header" >User Information Form</div>
                     <div class="card-body">
-                        <form action="/submit" method="post" enctype="multipart/form-data">
+                        <form action="/submit" method="POST" enctype="multipart/form-data">
                             <div class="mb-3">
                                 <label for="name" class="form-label">Name</label>
-                                <input type="text" class="form-control" id="uploader" placeholder="Enter your name">
+                                <input type="text" class="form-control" id="uploader" name="uploader" placeholder="Enter your name">
                             </div>
                             <div class="input-group mb-3">
                                 <label class="input-group-text" for="inputGroupSelect01">Code</label>
-                                <select class="form-select" id="code">
+                                <select class="form-select" id="code" name="code_prefix">
                                   <option selected>Choose...</option>
                                   <option value="JRN-">JRN-</option>
                                   <option value="THS-">THS-</option>
@@ -44,18 +43,19 @@
                               </div>
                             <div class="mb-3">
                                 <label for="title" class="form-label">Title</label>
-                                <input type="text" class="form-control" id="title" placeholder="Enter title">
+                                <input type="text" class="form-control" id="title" name="title" placeholder="Enter title">
                             </div>
                             <div class="mb-3">
                                 <label for="description" class="form-label">Description</label>
-                                <textarea class="form-control" id="description" rows="3" placeholder="Enter description"></textarea>
+                                <textarea class="form-control" id="description" rows="3" name="description" placeholder="Enter description"></textarea>
                             </div>
                             <div class="mb-3">
                                 <label for="file-attachment" class="form-label">File Attachment</label>
-                                <input type="file" class="form-control-file" id="file-attachment" onchange="previewFile()">
+                                <input type="file" class="form-control-file" id="file-attachment" name="file-attachment" onchange="previewFile()">
                                 <iframe id="iframe-pdf" width="100%" height="520px"></iframe>
+                                <br>
+                                <button type="submit" class="btn btn-primary">Submit</button>
                             </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
                     </div>
                 </div>
