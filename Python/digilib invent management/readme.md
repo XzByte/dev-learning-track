@@ -7,6 +7,7 @@ On this repos, contain raw frontend and functional backend for the digilib from 
 - [ ] add logins
 - [x] create edit panel
 - [x] create delete menu
-- [ ] add CSRF and User session for security
+- [ ] add CSRF token
+- [ ] add required User session for security
 
 any other unchecked are still on going 
