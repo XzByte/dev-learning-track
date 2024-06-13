@@ -7,7 +7,6 @@ import requests
 app = Flask(__name__)
 from requests.exceptions import RequestException
 secret_key = 'so-secret'
-# MongoDB Configuration
 api_url = ''
 
 # Flask-Limiter Configuration
@@ -19,13 +18,12 @@ api_url = ''
 
 def is_authenticated():
     # Simulate authentication check
-    # In a real application, verify the user's authentication status here (e.g., check JWT token)
     return request.headers.get("X-Authenticated-User") is not None
 
 # @app.route("/api/data")
 # @limiter.limit("20/day;5/day", key_func=lambda: "authenticated" if is_authenticated() else "unauthenticated")
 # def get_data():
-#     # Your endpoint logic
+#    
 #     return jsonify({"message": "Data retrieved successfully"})
 
 @app.route('/signup', methods=['GET', 'POST'])
@@ -80,8 +78,6 @@ def login():
 
 @app.route('/protected')
 def protected():
-    # Example protected route that requires authentication
-    # Here you would check if the user is authenticated, e.g., by verifying the session has an access_token
     if 'access_token' in session:
         return 'Welcome to the protected area!'
     else:
