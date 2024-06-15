@@ -2,5 +2,6 @@
 - [ ] Learn Python Backend Framework (Flask, Fastapi, Django)
 - [ ] Learn Docker
 - [ ] Learn Kubernetes (From Minikube)
+- [ ] Learn Cloud Computing
 - [ ] Learn CI/CD
 - [ ] Learn Automation (Ansible & Terraform IAC)
