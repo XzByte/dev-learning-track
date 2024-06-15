@@ -3,6 +3,6 @@ This backend using python (flask) as main language, combined with FastAPI for th
 ## Checkpoints
 - [x] implement /login
 - [x] implement /signup
-- [ ] implement session
-- [ ] implement traffic limiting
+- [x] implement session
+- [ ] implement traffic limiting (untested)
 - [ ] implement main function (scan and show result)
