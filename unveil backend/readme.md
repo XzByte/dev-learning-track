@@ -5,4 +5,4 @@ This backend using python (flask) as main language, combined with FastAPI for th
 - [x] implement /signup
 - [x] implement session
 - [ ] implement traffic limiting (untested)
-- [ ] implement main function (scan and show result)
+- [x] implement main function (scan and show result)
