@@ -32,3 +32,10 @@ if you using firewall, and not enabled the port's number (eg. ufw, iptables, fir
 
 ## Last
 when you tried to connect the db, make sure to add user and password on your vscode or project on .env and dont forget to .gitignore it!
+
+## Tips for today
+when you need to remove credentials, you should remove volume using this script 
+```
+docker volume rm <your named volume>
+```
+and then rerun your instance using docker run
