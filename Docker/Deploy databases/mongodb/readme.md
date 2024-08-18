@@ -14,7 +14,8 @@ mkdir -p mongodb_data
 after that, just adjust this script to mount the folders 
 ```
 docker run -d -v mongodb_data:/data/db -p 27017:27017 mongo:latest --name mongodb
-
+or
+docker run --name mongodb -p 27017:27017 -d -v /mongodb_data:/data/db mongo:latest
 ```
 when you need more "security" you can use this script instead
 ```
