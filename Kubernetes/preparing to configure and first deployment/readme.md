@@ -72,7 +72,7 @@ spec:
   selector:
     matchLabels:
       app: nginx #labelling the deployment
-  replicas: 1 # tells deployment to run 2 pods matching the template
+  replicas: 1 # tells deployment to run 1 pods matching the template
   template:
     metadata:
       labels:
@@ -81,17 +81,26 @@ spec:
       containers:
       - name: nginx
         image: nginx:1.14.2 #base image that i'm using on this tutorial
-        resources:
+        <!-- resources:
           requests: #requesting resource to be allocated
             memory: "64Mi" #requested memories allocated
             cpu: "250m" #requested cpu allocated
           limits:
             memory: "128Mi" #memmory limit
-            cpu: "500m" #cpu limit
+            cpu: "500m" #cpu limit # i've commented this because i'm not gonna use it, but it's just for trivia to limit kubernetes resource on config file--> 
         ports:
         - containerPort: 80 #service port exposed/alocated
 ```
 4. next, save and deploy using this command
 ```
 kubectl apply -f nginx-deployment.yaml 
+```
+5. check the resource that been configured, using this command
+```
+kubectl get deployment
+```
+the output should be like this
+```
+NAME               READY   UP-TO-DATE   AVAILABLE   AGE
+nginx-deployment   1/1     1            1           2s
 ```
