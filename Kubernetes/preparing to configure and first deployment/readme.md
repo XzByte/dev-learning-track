@@ -33,7 +33,7 @@ consideration are your creds file are saved and auto exported into env, so be ca
 2. then, just edit or append line that you wanna add, in this case are KUBECONFIG, so here's the command.
 To set it permanently for all future bash sessions add such line to your .bashrc file in your $HOME directory.
 ```
-echo "KUBECONFIG=/path/to/your file
+echo "KUBECONFIG=/path/to/your file"
 ```
 or you could use your desired text editor such as vi/m, nano, atom, etc...
 3. after finish write your code or adding values and saving it, simply export/apply your new line using this command
