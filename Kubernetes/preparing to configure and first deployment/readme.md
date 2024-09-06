@@ -30,7 +30,8 @@ when your command return without error and show what it should be shown, you're 
 ## saving your env into .bashrc
 consideration are your creds file are saved and auto exported into env, so be careful when doing this, when you're ready, here's the step
 1. go to home or root dir (when you had root privilege)
-2. then, just edit or append line that you wanna add, in this case are KUBECONFIG, so here's the command
+2. then, just edit or append line that you wanna add, in this case are KUBECONFIG, so here's the command.
+To set it permanently for all future bash sessions add such line to your .bashrc file in your $HOME directory.
 ```
 echo "KUBECONFIG=/path/to/your file
 ```
@@ -39,4 +40,58 @@ or you could use your desired text editor such as vi/m, nano, atom, etc...
 ```
 source ~/.bashrc
 ```
+4. To set it permanently, and system wide (all users, all processes) add set variable in /etc/environment:
+```
+sudo -H gedit /etc/environment
+```
+after finish write your code or adding values and saving it, simply export/apply your new line using this command
+```
+source ~/.bashrc
+```
 after that, tried to do same command to show resource on your cluster, when it return same output without error and show what should be shown, you're good to go
+
+# First deployment (nginx web server)
+
+1. now, create folder with desired name (mine are deployment) to store file for deployments and configs
+```
+mkdir -p deployment
+then
+cd deployment
+```
+2. create file for deployment, (for this tutorial, i'm just gonna use official tutor from kubernetes)
+```
+touch file nginx-deployment.yaml
+```
+3. after that, copy config below
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment #app name 
+spec:
+  selector:
+    matchLabels:
+      app: nginx #labelling the deployment
+  replicas: 1 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.14.2 #base image that i'm using on this tutorial
+        resources:
+          requests: #requesting resource to be allocated
+            memory: "64Mi" #requested memories allocated
+            cpu: "250m" #requested cpu allocated
+          limits:
+            memory: "128Mi" #memmory limit
+            cpu: "500m" #cpu limit
+        ports:
+        - containerPort: 80 #service port exposed/alocated
+```
+4. next, save and deploy using this command
+```
+kubectl apply -f nginx-deployment.yaml 
+```
