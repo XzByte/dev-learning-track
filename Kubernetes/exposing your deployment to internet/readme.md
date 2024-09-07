@@ -62,7 +62,7 @@ kubectl expose deployment nginx-deployment --port=8080 --target-port=80 \
         --name=nginx-expose --type=LoadBalancer
 ```
 ```
-explaination :
+explanation :
 
 kubectl expose : This is the base command for creating a Service in Kubernetes. It exposes a resource (like a pod, deployment, or service) to other services or external traffic.
 
