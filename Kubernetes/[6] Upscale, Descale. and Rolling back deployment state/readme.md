@@ -28,7 +28,7 @@ nginx-deployment   1/1     1            1           119s
 ```
 kubectl scale --current-replicas=1 --replicas=3 deployment/nginx-deployment
 
-when success :
+when succeed :
 deployment.apps/nginx-deployment scaled
 ```
 check the pods after upscaling the deployment
@@ -44,7 +44,7 @@ nginx-deployment-5f77c77f6-gh8qb   1/1     Running   0          12s
 ```
 kubectl scale --current-replicas=3 --replicas=1 deployment/nginx-deployment
 
-when success:
+when succeed:
 deployment.apps/nginx-deployment scaled
 ```
 check the pods after downscaled
