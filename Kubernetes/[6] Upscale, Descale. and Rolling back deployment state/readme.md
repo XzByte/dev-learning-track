@@ -6,7 +6,7 @@ the main prerequisite are previous deployment, because we deploy a svc and then 
 
 Let's start with deployment 
 
-change dedfault context for namespaces: 
+change default context for namespaces: 
 ```
 root@gke-remote:~/deployment/manifest-deploy# kubectl config set-context --current --namespace=wss-nginx
 Context "gke_formal-precinct-431212-u7_us-central1-c_superbig-cluster" modified.
