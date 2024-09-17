@@ -13,6 +13,6 @@ The progress will be separated into 3 stages, like the explanation below :
 - 🟢 for project that done and successfuly working (production)  
 
 ## Project file(s)
-- [ ] flask-limiter
+- [🟡 flask-limiter](flask-limiter)
 - [ ] online shop
 - [ ] ....
