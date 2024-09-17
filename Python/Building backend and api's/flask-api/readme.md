@@ -7,10 +7,10 @@ Also, I'm gonna create ```Dockerfile``` too, because i wanna deploy it into my k
 ## Files
 For the fist API project, just simple gateway to achieve the minimum and building easiest pipeline possible
 The progress will be separated into 3 stages, like the explanation below :
-🔴 for the project that hasn't started yet 
-🟡 when the project still on going 
-🔵 for project that still unstable or not ready yet but the main logic and flow already implemented and work well
-🟢 for project that done and successfuly working (production)  
+- 🔴 for the project that hasn't started yet 
+- 🟡 when the project still on going 
+- 🔵 for project that still unstable or not ready yet but the main logic and flow already implemented and work well
+- 🟢 for project that done and successfuly working (production)  
 - [ ] flask-limiter
 - [ ] online shop
 - [ ] ....
