@@ -3,7 +3,7 @@
 ## First thing first..
 this section had specified pre-requisite to be fulfiled before executing the tutorials, they're include
 - [have coded to deploy into a container](https://github.com/XzByte/dev-learning-track/tree/main/Python/Building%20backend%20and%20api's/flask-api/example-api)
-- [Creating a Dockerfile to build a container](link)
+- [Creating a Dockerfile to build a container](https://github.com/XzByte/dev-learning-track/blob/main/Docker/build%20image%20using%20dockerfiles/example-api%20dockerfiles/Dockerfile)
 - [creating Artifact registy to store containerized app](link)
 
 ## Now we start from building the apps
