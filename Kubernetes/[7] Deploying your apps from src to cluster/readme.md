@@ -2,7 +2,7 @@
 
 ## First thing first..
 this section had specified pre-requisite to be fulfiled before executing the tutorials, they're include
-- [have coded to deploy into a container](link)
+- [have coded to deploy into a container](Python/Building backend and api's/flask-api/example-api)
 - [Creating a Dockerfile to build a container](link)
 - [creating Artifact registy to store containerized app](link)
 
