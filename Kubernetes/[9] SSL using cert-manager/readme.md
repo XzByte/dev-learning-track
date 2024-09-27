@@ -1,7 +1,7 @@
 # Adding certificate into your deployment using cert-manager
 ## Pre-requisite
-- [v] deployment or manifest that contain file deployment, service, and ingress
-- [v] valid DNS and the access into registrar
+- [x] deployment or manifest that contain file deployment, service, and ingress
+- [x] valid DNS and the access into registrar
 
 This section will be separated by 3 parts
 
