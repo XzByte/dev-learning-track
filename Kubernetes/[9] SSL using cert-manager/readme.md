@@ -115,5 +115,5 @@ all done, now we should validate it again and edit the IP domain that we've been
 2. go to DNS setting, edit the hostname that you point on ingress
 3. change the IP into ingress IP and save
 4. wait for some time (under 10 mins) for the changes to be applied
-5. now navigate into your domain from browser__
+5. now navigate into your domain from browser\
 for now, the cert are invalid maybe i'm gonna figure it out using some method like issuing using files directly or create valid SSL 
