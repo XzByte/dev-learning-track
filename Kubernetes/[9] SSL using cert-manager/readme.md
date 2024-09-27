@@ -24,8 +24,7 @@ cert-manager-webhook-59598898fd-7sq9k      1/1     Running   0          12h
 ```
 now, we move to manifest config 
 ## Configure manifest and deployment
-In this part, I'm gonna reuse file ```ingress.yaml```, then create file named ```cluster-issuer.yaml```, and ```self-sign.yaml```
-```cluster-issuer.yaml``` file
+In this part, I'm gonna reuse file ```ingress.yaml```, then create file named ```cluster-issuer.yaml```, and ```self-sign.yaml``` file
 ```
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
