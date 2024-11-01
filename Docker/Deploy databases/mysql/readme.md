@@ -30,6 +30,7 @@ then, run and bind into your folder :
 ```
 docker run --name mysql-server \
   -v $(pwd)/db:/var/lib/mysql \
+  -p 3306:3306 \
   -e MYSQL_ROOT_PASSWORD=<desired-password> \
   -d mysql:latest
 ```
